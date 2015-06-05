@@ -9,14 +9,18 @@ title: Releases | GitHub API
 
 ## List releases for a repository
 
+{{#tip}}
+
+This returns a list of releases, which does not include regular
+Git tags that have not been associated with a release.
+To get a list of Git tags, use the [Repository Tags API][repo tags api].
+
+{{/tip}}
+
 Information about published releases are available to everyone.
 Only users with push access will receive listings for draft releases.
 
     GET /repos/:owner/:repo/releases
-
-**Note:** This returns a list of releases, which does not include regular
-Git tags that have not been associated with a release.
-(To get a list of Git tags, use the [Repository Tags API][repo tags api].)
 
 ### Response
 
@@ -170,7 +174,7 @@ Name | Type | Description
 -----|------|--------------
 `Content-Type`|`string` | **Required**. The content type of the asset. This should be set in the Header. Example: `"application/zip"`. For a list of acceptable types, refer this list of [common media types](http://en.wikipedia.org/wiki/Internet_media_type#List_of_common_media_types).
 `name`|`string` | **Required**. The file name of the asset. This should be set in the URI query parameter.
-
+`label`|`string` | An alternate short description of the asset.  Used in place of the filename.
 
 Send the raw binary content of the asset as the request body.
 

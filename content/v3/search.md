@@ -22,7 +22,7 @@ search**.
 
 Unless another sort option is provided as a query parameter, results are sorted
 by best match, as indicated by the `score` field for each item returned. This
-is a computed value representing the relevance of a item relative to the other
+is a computed value representing the relevance of an item relative to the other
 items in the result set. Multiple factors are combined to boost the most
 relevant item to the top of the result list.
 
@@ -31,8 +31,8 @@ relevant item to the top of the result list.
 The Search API has a custom rate limit. For requests using [Basic
 Authentication](/v3/#authentication), [OAuth](/v3/#authentication), or [client
 ID and secret](/v3/#increasing-the-unauthenticated-rate-limit-for-oauth-applications), you can make up to
-20 requests per minute. For unauthenticated requests, the rate limit allows you
-to make up to 5 requests per minute.
+30 requests per minute. For unauthenticated requests, the rate limit allows you
+to make up to 10 requests per minute.
 
 See the [rate limit documentation](/v3/#rate-limiting) for details on
 determining your current rate limit status.
@@ -254,6 +254,10 @@ The `q` search term can also contain any combination of the supported issue sear
    Filters issues or pull requests based on date of creation, or when they were last updated.
  * [`merged`](https://help.github.com/articles/searching-issues#search-based-on-when-a-pull-request-was-merged)
    Filters pull requests based on the date when they were merged.
+ * [`status`](https://help.github.com/articles/searching-issues#search-based-on-commit-status)
+   Filters pull requests based on the commit status.
+ * [`head` or `base`](https://help.github.com/articles/searching-issues#search-based-on-branch-names)
+   Filters pull requests based on the branch that they came from or that they are modifying.
  * [`closed`](https://help.github.com/articles/searching-issues#search-based-on-when-an-issue-or-pull-request-was-closed)
    Filters issues or pull requests based on the date when they were closed.
  * [`comments`](https://help.github.com/articles/searching-issues#search-by-the-number-of-comments-an-issue-or-pull-request-has)

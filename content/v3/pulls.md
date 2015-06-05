@@ -69,6 +69,12 @@ however, this attribute is [deprecated](/v3/versions/#v3-deprecations) and is sc
 removal in the next version of the API. The Boolean `mergeable` attribute will
 remain to indicate whether the pull request can be automatically merged.
 
+The value of the `mergeable` attribute can be `true`, `false`, or `null`. If 
+the value is `null`, this means that the mergeability hasn't been computed yet,
+and a background job was started to compute it. Give the job a few moments to
+complete, and then submit the request again. When the job is complete, the
+response will include a non-`null` value for the `mergeable` attribute.
+
 ### Alternative Response Formats
 
 Pass the appropriate [media type](/v3/media/#commits-commit-comparison-and-pull-requests) to fetch diff and patch formats.
@@ -225,3 +231,9 @@ use of media types in the API [here](/v3/media/).
     application/vnd.github.VERSION.text+json
     application/vnd.github.VERSION.html+json
     application/vnd.github.VERSION.full+json
+    application/vnd.github.VERSION.diff
+    application/vnd.github.VERSION.patch
+
+<a id="diff-error">
+
+If a diff is corrupt, <span class='not-enterprise'>please contact [GitHub Support](https://www.github.com/contact)</span><span class='enterprise-only'>contact your site administrator</span> to receive help. Be sure to include the repository name and pull request ID.
